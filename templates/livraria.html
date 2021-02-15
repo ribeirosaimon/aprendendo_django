@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="conteiner">
+    <div class="container">
+        Seja bem vindo(a) {{ user.get_full_name }}!
+        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome Do livro</th>
+                <th>Paginas</th>
+                <th>Autor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for livro in livros %}
+            <tr>
+                <td>{{ livro.nome_livro }}</td>
+                <td>{{ livro.paginas }}</td>
+                <td>{{ livro.autor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+{% endblock %}
