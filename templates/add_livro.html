@@ -1,5 +1,21 @@
 <div>
-    <form>
-        
+    <form method='post'>
+        {% csrf_token %}
+        <div>
+            Nome do Livro
+            <input type="text" class="form-control" id="nome_livro" name="nome_livro">
+        </div>
+        <div>
+            Paginas
+            <input type="text" class="form-control" id="paginas" name="paginas">
+        </div>
+        <div>
+            Autor
+            <input type="text" class="form-control" id="autor" name="autor">
+        </div>
+        <div>
+            <button id="form-submit" type="submit">Enviar</button>
+        </div>
+
     </form>
 </div>
