@@ -9,6 +9,7 @@
     {% else %}
         <div class="alert alert-primary" role="alert">
             Seja bem vindo(a) {{ user.get_full_name }}!
+            <a class="btn btn-primary" href="{% url 'livraria' %}">Meus Livros</a>
             <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
         </div>
     {% endif %}

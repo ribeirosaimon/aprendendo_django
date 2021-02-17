@@ -1,2 +1,16 @@
 # aprendendo_django
- Portfolio para aprendizado de django
+ Aplicação CRUD em Django
+--------------------------------
+
+Como rodar este projeto?
+
+
+crie uma virtual env e instale as dependências
+# python3 -m venv venv
+# pip install -r requirements.txt
+
+Crie um Super user que ira usar no login da app
+# python manage.py createsuperuser
+
+
+

@@ -6,6 +6,7 @@
 <div class="conteiner">
     <div class="container">
         Seja bem vindo(a) {{ user.get_full_name }}!
+        <a class="btn btn-primary" href="{% url 'add_livro' %}">Adicionar Livro</a>
         <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
     </div>
     <table class="table">
@@ -14,6 +15,8 @@
                 <th>Nome Do livro</th>
                 <th>Paginas</th>
                 <th>Autor</th>
+                <th>Editar</th>
+                <th>Apagar</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +25,18 @@
                 <td>{{ livro.nome_livro }}</td>
                 <td>{{ livro.paginas }}</td>
                 <td>{{ livro.autor }}</td>
+                <td>    
+                    <for method="post" id="{{ livro.id }}">
+                        {% csrf_token %}
+                        <a  href="{% url 'editar_livro'  livro.id  %}">Editar</a>
+                    </form>
+                </td>
+                <td>    
+                    <for method="post" id="{{ livro.id }}">
+                        {% csrf_token %}
+                        <a  href="{% url 'deletar_livro'  livro.id  %}">Apagar</a>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

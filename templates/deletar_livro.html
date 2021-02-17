@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form  method="post">
+    {% csrf_token %}
+    Tem certeza que deseja deletar {{ livro }}
+    <input class="btn btn-primary" type="submit"  value="Sim" />
+</form>
+<a class="btn btn-primary" href="{% url 'livraria' %}">Não</a>
+
+{% endblock %}

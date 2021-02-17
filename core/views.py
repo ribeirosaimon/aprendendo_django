@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import FormView
+from django.views.generic import FormView, DeleteView, UpdateView
 from .models import LivrosModel
 from .forms import LivroModelForm
 
@@ -30,3 +30,17 @@ class LivrosView(LoginRequiredMixin, FormView):
     def form_invalid(self, form, *args3, **kwargs):
         messages.error(self.request,'Algo deu errado')
         return super(LivrosView, self).form_valid(form,*args,**kwargs)
+
+
+class LivrosViewDelete(DeleteView):
+    model = LivrosModel
+    template_name = 'deletar_livro.html'
+    context_object_name = 'livro'
+    success_url = reverse_lazy('livraria')
+
+
+class LivrosViewUpdate(UpdateView):
+    model = LivrosModel
+    template_name = 'editar_livro.html'
+    fields = ['nome_livro', 'paginas','autor']
+    success_url = reverse_lazy('livraria')
